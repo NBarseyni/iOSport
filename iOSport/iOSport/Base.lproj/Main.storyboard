@@ -51,6 +51,10 @@
                         <viewLayoutGuide key="safeArea" id="wA4-83-q98"/>
                     </view>
                     <navigationItem key="navigationItem" title="Mon profil" id="fo7-7e-7Yz"/>
+                    <connections>
+                        <outlet property="progressLevel" destination="64X-gu-vR1" id="tqy-i9-Vka"/>
+                        <outlet property="textLevel" destination="2Ij-O8-gFg" id="saI-iv-2Vd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dc0-Pp-UBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

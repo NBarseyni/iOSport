@@ -12,7 +12,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    let programs: NSMutableArray = Programme.loadPrograms()
+    var programs: [Programme] = Programme.loadPrograms()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +31,13 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "programmeCell", for: indexPath)
         
-        let p = programs.object(at: indexPath.row) as! Programme
+        let p = programs[indexPath.row]
         cell.textLabel?.text = p.name
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let p = programs.object(at: indexPath.row) as! Programme
+        let p = programs[indexPath.row]
         
         let spvc = self.storyboard?.instantiateViewController(withIdentifier: "singleProgramVC") as! SingleProgramViewController
         spvc.program = p
@@ -58,7 +58,7 @@ class ProgramViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let newProgram = addProgramVC.program
         
-        programs.add(newProgram)
+        programs.append(newProgram)
         tableView.reloadData()
     }
     
